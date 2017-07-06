@@ -1,8 +1,9 @@
 const http = require('http');
 const express = require('express');
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const app = express();
 var port = process.env.PORT || 8080;
+var Twilio = require('twilio')
+const MessagingResponse = Twilio.twiml.MessagingResponse;
 
 // Retreive Twilio Credentials
 if (process.env.VCAP_SERVICES) {
@@ -18,10 +19,10 @@ if (process.env.VCAP_SERVICES) {
 var outNumber = process.env.TWILIO_PHONE_NUMBER;
 var toNumber = process.env.TWILIO_OUTGOING_PHONE_NUMBER;
 
-// require the Twilio module and create a REST client
-const client = require('twilio')(accountSid, authToken);
+// Create a new Twilio REST client
+const client = new Twilio(accountSid, authToken);
 
-app.get("/s", function (request, response) {
+app.get("/", function (request, response) {
     response.end("You don't need to see my identification.");
 });
 
@@ -32,15 +33,21 @@ app.get("/send-sms", function (request, response) {
         from: outNumber,
         body: 'Han shot first.',
     })
-    .then((message) => console.log(message.sid));
-    response.end("Outgoing SMS!");
+    .then((message) => {
+        console.log(message.sid)
+        response.end("Outgoing SMS!");
+    })
+    .catch((err) => {
+        console.log(err);
+        response.end("An error occurred!");
+    });
 });
 
-app.post('/receive-sms', (req, res) => {
+app.post("/receive-sms", function (request, response) {
   const twiml = new MessagingResponse();
   twiml.message('Han shot first!!!');
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
+  response.writeHead(200, {'Content-Type': 'text/xml'});
+  response.end(twiml.toString());
 });
 
 app.listen(port);
