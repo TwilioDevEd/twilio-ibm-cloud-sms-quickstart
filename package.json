@@ -1,0 +1,22 @@
+{
+  "name": "twilio-bluemix-sms",
+  "version": "1.0.0",
+  "description": "Send and receive/respond to SMS and MMS messages with Twilio and IBM Bluemix.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "twilio",
+    "sms",
+    "bluemix",
+    "serverless"
+  ],
+  "author": "Twilio Developer Education",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.15.3",
+    "twilio": "~3.4.0"
+  }
+}
