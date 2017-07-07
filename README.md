@@ -16,14 +16,14 @@ bluemix login
 TWILIO_PHONE_NUMBER
 TWILIO_OUTGOING_PHONE_NUMBER
 ```
-5. Deploy the code:
+6. Deploy the code:
 ```
 bluemix app push
 ```
-6. In the Twilio console, add a webhook to <URL of Bluemix App>/receive-sms
-7. Visit <URL of Bluemix App>/send-sms
-8. Send a snarky reponse
-9. Receive an even snarkier retort
+7. In the Twilio console, add a webhook to <URL of Bluemix App>/receive-sms
+8. Visit <URL of Bluemix App>/send-sms
+9. Send a snarky reponse
+10. Receive an even snarkier retort
 
 ## Meta & Licensing
 
