@@ -11,7 +11,7 @@ Send and Receive SMS and MMS Messages with IBM's Bluemix and Twilio
 bluemix api https://api.ng.bluemix.net
 bluemix login
 ```
-5. Set the environmental variables (in the Bluemix console):
+5. Set the environment variables (in the Bluemix console):
 ```
 TWILIO_PHONE_NUMBER
 TWILIO_OUTGOING_PHONE_NUMBER
