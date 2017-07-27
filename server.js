@@ -9,15 +9,17 @@ const MessagingResponse = Twilio.twiml.MessagingResponse;
 if (process.env.VCAP_SERVICES) {
     var env = JSON.parse(process.env.VCAP_SERVICES);
     var local_creds = env['user-provided'][0].credentials;
-    var accountSid = local_creds.accountSID;
-    var authToken = local_creds.authToken;
+    var accountSid = local_creds.twilio_account_sid;
+    var authToken = local_creds.twilio_auth_token;
+    var outNumber = local_creds.twilio_phone_number;
 } else {
+    var outNumber = process.env.TWILIO_PHONE_NUMBER;
     var accountSid = process.env.TWILIO_ACCOUNT_SID;
     var authToken = process.env.TWILIO_AUTH_TOKEN;
 }
 
-var outNumber = process.env.TWILIO_PHONE_NUMBER;
-var toNumber = process.env.TWILIO_OUTGOING_PHONE_NUMBER;
+
+var toNumber = process.env.OUTGOING_PHONE_NUMBER;
 
 // Create a new Twilio REST client
 const client = new Twilio(accountSid, authToken);
