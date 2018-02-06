@@ -1,5 +1,5 @@
 {
-  "name": "twilio-bluemix-sms",
+  "name": "twilio-ibm-cloud-sms-quickstart",
   "version": "1.0.0",
   "description": "Send and receive/respond to SMS and MMS messages with Twilio and IBM Bluemix.",
   "main": "server.js",
