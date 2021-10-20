@@ -52,4 +52,11 @@ app.post("/receive-sms", function (request, response) {
   response.end(twiml.toString());
 });
 
+app.use((error, req, res, next) => {
+  res.status(500)
+  res.send({error: error})
+  console.error(error.stack)
+  next(error)
+})
+
 app.listen(port);
