@@ -16,7 +16,7 @@
   "author": "Twilio Developer Education",
   "license": "MIT",
   "dependencies": {
-    "express": "~4.15.3",
+    "express": "~4.17.3",
     "twilio": "~3.4.0"
   }
 }
